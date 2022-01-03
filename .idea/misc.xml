@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/progress_animation.xml" value="0.15185185185185185" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13824419778002017" />
+        <entry key="app/src/main/res/layout/activity_search.xml" value="0.17465940884641068" />
+        <entry key="app/src/main/res/layout/forecastlist_item.xml" value="0.265588358831293" />
+        <entry key="app/src/main/res/layout/fragment_future_weather.xml" value="0.15820966455859536" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.14581231079717458" />
+        <entry key="app/src/main/res/layout/fragment_weather.xml" value="0.2462231658961167" />
+        <entry key="app/src/main/res/layout/popup_dialog.xml" value="0.14581231079717458" />
+        <entry key="app/src/main/res/layout/search_item_list.xml" value="0.41676104190260477" />
+        <entry key="app/src/main/res/layout/view_main_button.xml" value="0.14581231079717458" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.153125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

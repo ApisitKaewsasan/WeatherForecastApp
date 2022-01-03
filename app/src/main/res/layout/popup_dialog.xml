@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialogTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helvetica_neu_bold"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        tools:text="Lifesaver" />
+
+    <TextView
+        android:id="@+id/dialogBodyText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:paddingLeft="24dp"
+        android:paddingTop="8dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="16dp"
+        android:text=""
+        android:textColor="@color/colorPrimaryDark"
+        tools:text="Lorem ipsum dolor sit amet consectetur adipiscing elit ultricies scelerisque, porta et blandit fusce phasellus iaculis class metus dui, rhoncus semper ante condimentum nisl fermentum per tortor." />
+
+<!--    <com.fabirt.weatherforecast.core.components.MainButton-->
+<!--        android:id="@+id/dialogPositiveButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:splashColor="@color/colorAccentHighlight"-->
+<!--        app:text=""-->
+<!--        app:textColor="@color/colorPrimary"-->
+<!--        app:tintColor="@color/colorAccent"-->
+<!--        tools:text="Choose action" />-->
+
+<!--    <com.fabirt.weatherforecast.core.components.MainButton-->
+<!--        android:id="@+id/dialogNegativeButton"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        app:splashColor="@color/colorPrimaryDarkRipple"-->
+<!--        app:text=""-->
+<!--        app:textColor="@color/colorPrimaryDark"-->
+<!--        app:tintColor="@color/colorSecondaryButton"-->
+<!--        tools:text="Cancel" />-->
+
+</LinearLayout>

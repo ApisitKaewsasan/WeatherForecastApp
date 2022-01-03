@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">My Weather Forecast</string>
+    <string name="current_weather">Today</string>
+    <string name="future_weather">Hourly</string>
+    <string name="settings">Settings</string>
+    <string name="future_weather_title">Weekly Forecast</string>
+    <string name="ok">OK</string>
+    <string name="retry">Retry</string>
+    <string name="allow">Allow</string>
+    <string name="not_available">NOT AVAILABLE</string>
+    <string name="not_available_description">TODO</string>
+    <string name="real_feel_label">Real feel:</string>
+    <string name="humidity_label">Humidity</string>
+    <string name="wind_speed_label">Wind speed</string>
+    <string name="pressure_label">Pressure</string>
+    <string name="wind_direction_label">Wind direction</string>
+    <string name="visibility_label">Visibility</string>
+    <string name="settings_title">SETTINGS</string>
+    <string name="about_title">ABOUT</string>
+    <string name="about_text_content">
+        \u0020Version: %1$s\n
+        Developers: Fabirt\n
+        Design: Group 20 - UI design 2019 Course\n
+        Weather Info: Powered by Weatherstack API </string>
+    <string name="location_permissions_label">Allow location access</string>
+    <string name="location_enabled_label">GPS enabled</string>
+    <string name="weekly_forecast_shortcut_short_label">Weekly Forecast</string>
+    <string name="weekly_forecast_shortcut_long_label">Weekly Forecast</string>
+    <string name="settings_shortcut_short_label">Settings</string>
+    <string name="settings_shortcut_long_label">Settings</string>
+    <string name="disabled_shortcut_message">Not available</string>
+
+    <string name="humidity_percentage">%1$d %%</string>
+    <string name="atm_pressure">%1$d mb</string>
+    <string name="wind_speed">%1$d km/h</string>
+    <string name="temperature">%1$dº</string>
+    <string name="visibility">%1$d km</string>
+
+</resources>
