@@ -60,6 +60,10 @@ class FutureWeatherFragment  : Fragment(){
         binding!!.list.layoutManager = GridLayoutManager(requireContext(), 1)
         binding!!.list.adapter = adapter
 
+        (activity as MainActivity).viewModel.forecastList.value.let {
+
+        }
+
         (activity as MainActivity).viewModel.forecastList.observe(viewLifecycleOwner, Observer {
 
             adapter?.let { view ->

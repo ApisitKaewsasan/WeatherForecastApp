@@ -40,13 +40,16 @@ class WeatherViewModel : ViewModel() {
         ApiUtil.weartherServicer().forecastList(query,UnitSystem.Metric.toString()).enqueue(object :
             Callback<ForecastList> {
             override fun onResponse(call: Call<ForecastList>, response: Response<ForecastList>) {
+                System.out.println("efwefed ok")
                 if(response.code()==200){
+
                     forecastList.postValue(response.body())
                 }else{
                     forecastList.postValue(null)
                 }
             }
             override fun onFailure(call: Call<ForecastList>, t: Throwable) {
+                System.out.println("efwefed  no "+t.localizedMessage)
                 forecastList.postValue(null)
             }
         })
