@@ -7,12 +7,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WeatherServiceInterface {
-    @GET("weather?appid=485c62567ce6f2e1bc90b886d782f904&lang=en")
+    @GET("weather?appid=485c62567ce6f2e1bc90b886d782f904")
     fun weatherNow(@Query("lat") lat: Double,@Query("lon") lon: Double,@Query("units") units:String): Call<WeatherNow>
 
-    @GET("weather?appid=485c62567ce6f2e1bc90b886d782f904&lang=en")
+    @GET("weather?appid=485c62567ce6f2e1bc90b886d782f904")
     fun weatherSearch(@Query("q") p: String,@Query("units") units:String): Call<WeatherNow>
 
-    @GET("forecast?appid=485c62567ce6f2e1bc90b886d782f904&lang=en")
+    @GET("forecast?appid=485c62567ce6f2e1bc90b886d782f904")
     fun forecastList(@Query("q") p: String,@Query("units") units:String): Call<ForecastList>
 }
