@@ -1,5 +1,6 @@
 package com.weather.app.ui.main
 
+import android.os.StrictMode
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.weather.app.core.utils.UnitSystem
@@ -13,6 +14,10 @@ import retrofit2.Response
 class WeatherViewModel : ViewModel() {
     var weatherNow: MutableLiveData<WeatherNow> = MutableLiveData()
     var forecastList: MutableLiveData<ForecastList> = MutableLiveData()
+    init {
+
+
+    }
 
     fun getWeatherNow(lat:Double,long: Double){
 
@@ -23,12 +28,14 @@ class WeatherViewModel : ViewModel() {
                     response.body().run {
                         forecastList(this!!.name)
                     }
+
                     weatherNow.postValue(response.body())
                 }
 
             }
 
             override fun onFailure(call: Call<WeatherNow>, t: Throwable) {
+
                 weatherNow.postValue(null)
             }
 

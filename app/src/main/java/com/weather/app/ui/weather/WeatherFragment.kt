@@ -50,7 +50,9 @@ class WeatherFragment  : Fragment(){
 
 
     private fun setUpDataBinding(){
+
         (activity as MainActivity).viewModel.weatherNow.observe(viewLifecycleOwner, Observer {
+
            // Toast.makeText(requireActivity(), "data "+it, Toast.LENGTH_SHORT).show()
             binding!!.data = it
         })

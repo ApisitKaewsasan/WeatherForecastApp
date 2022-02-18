@@ -7,6 +7,9 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WeatherServiceInterface {
+
+
+
     @GET("weather?appid=485c62567ce6f2e1bc90b886d782f904")
     fun weatherNow(@Query("lat") lat: Double,@Query("lon") lon: Double,@Query("units") units:String): Call<WeatherNow>
 

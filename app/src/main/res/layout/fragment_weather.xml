@@ -10,240 +10,269 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.weather.WeatherFragment">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/locationText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:drawableStart="@drawable/ic_location_on"
-            android:drawablePadding="5dp"
-            android:fontFamily="@font/helvetica_neu_bold"
-            android:gravity="center"
-            android:text="@{data.name}"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="23sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Today Weather" />
-
-        <TextView
-            android:id="@+id/dateTimeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/helvetica_neue_medium"
-            android:text="@{FunctionHelper.INSTANCE.timeNow}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/locationText"
-            tools:text="Sun 08 March 2019" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/weatherCardLayout"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/weather_card_background"
-            android:elevation="6dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateTimeText">
-
-            <TextView
-                android:id="@+id/temperatureText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/helvetica_neue_medium"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="60sp"
-                app:convertTemp="@{data.main.temp}"
-                app:layout_constraintEnd_toStartOf="@+id/weatherIndicatorImage"
-                app:layout_constraintHorizontal_bias="0.132"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="20º" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/weatherIndicatorImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:id="@+id/iconSearch"
+                android:layout_width="40dp"
+                android:layout_gravity="end"
+                android:layout_height="40dp"
+               android:layout_marginRight="20dp"
+                android:layout_marginTop="40dp"
+                app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="5dp"
+                    app:srcCompat="@drawable/ic_location_on" />
+
+                <TextView
+                    android:id="@+id/locationText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/helvetica_neu_bold"
+                    android:gravity="center"
+                    android:text="@{data.name}"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="23sp"
+                    tools:text="Today Weather" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/dateTimeText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/helvetica_neue_medium"
+                android:text="@{FunctionHelper.INSTANCE.timeNow}"
+                android:textAlignment="center"
+                tools:text="Sun 08 March 2019" />
+
+            <LinearLayout
+                android:id="@+id/weatherCardLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginEnd="24dp"
-                android:src="@drawable/ic_cloud_queue_dark"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:weatherIcon="@{data}" />
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:padding="25dp"
+                android:background="@drawable/weather_card_background"
+                android:elevation="6dp"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/realFeelLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="@font/helvetica_neue_medium"
-                android:text="@string/real_feel_label"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/temperatureText" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/realFeelText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
-                android:fontFamily="@font/helvetica_neue_medium"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="12sp"
-                app:convertDoubleToString="@{data.main.feels_like}"
-                app:layout_constraintStart_toEndOf="@+id/realFeelLabel"
-                app:layout_constraintTop_toTopOf="@+id/realFeelLabel"
-                tools:text="18" />
+                    <TextView
+                        android:id="@+id/temperatureText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/helvetica_neue_medium"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="60sp"
+                        app:convertTemp="@{data.main.temp}"
+                        tools:text="20º" />
 
-            <TextView
-                android:id="@+id/weatherDescriptionText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="@font/helvetica_neue_medium"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/weatherIndicatorImage"
-                app:layout_constraintTop_toBottomOf="@+id/weatherIndicatorImage"
-                app:weatherDescriptionText="@{data}"
-                tools:text="Overcast" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/weatherIndicatorImage"
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_cloud_queue_dark"
+                        app:weatherIcon="@{data}" />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/humidityText"
-            style="@style/WeatherInfoTextStyle"
-            android:layout_marginEnd="32dp"
-            app:convertDoubleToString="@{data.main.humidity}"
-            app:layout_constraintBottom_toBottomOf="@+id/humidityLabel"
-            app:layout_constraintEnd_toEndOf="@+id/weatherCardLayout"
-            app:layout_constraintTop_toTopOf="@+id/humidityLabel"
-            tools:text="65%" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/humidityLabel"
-            style="@style/WeatherLabelTextStyle"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="54dp"
-            android:text="@string/humidity_label"
-            
-            app:layout_constraintStart_toStartOf="@+id/weatherCardLayout"
-            app:layout_constraintTop_toBottomOf="@+id/weatherCardLayout" />
+                    <TextView
+                        android:id="@+id/realFeelText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/helvetica_neue_medium"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp"
+                        app:convertDoubleToString="@{data.main.feels_like}"
+                        tools:text="18" />
 
-        <TextView
-            android:id="@+id/windSpeedLabel"
-            style="@style/WeatherLabelTextStyle"
-            android:layout_marginTop="24dp"
-            android:text="@string/wind_speed_label"
-            
-            app:layout_constraintStart_toStartOf="@+id/humidityLabel"
-            app:layout_constraintTop_toBottomOf="@+id/windDirectionLabel" />
+                    <TextView
+                        android:id="@+id/realFeelLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/helvetica_neue_medium"
+                        android:text="@string/real_feel_label"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/windSpeedText"
-            style="@style/WeatherInfoTextStyle"
-            app:convertDoubleToString="@{data.wind.speed}"
-            app:layout_constraintBottom_toBottomOf="@+id/windSpeedLabel"
-            app:layout_constraintEnd_toEndOf="@+id/humidityText"
-            app:layout_constraintTop_toTopOf="@+id/windSpeedLabel"
-            tools:text="5.69 km/h" />
+                    <TextView
+                        android:id="@+id/weatherDescriptionText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/helvetica_neue_medium"
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="12sp"
+                        app:weatherDescriptionText="@{data}"
+                        tools:text="Overcast" />
+                </LinearLayout>
 
-        <TextView
-            android:id="@+id/pressureLabel"
-            style="@style/WeatherLabelTextStyle"
-            android:layout_marginTop="24dp"
-            android:text="@string/pressure_label"
-            
-            app:layout_constraintStart_toStartOf="@+id/humidityLabel"
-            app:layout_constraintTop_toBottomOf="@+id/humidityLabel" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/pressureText"
-            style="@style/WeatherInfoTextStyle"
-            app:convertDoubleToString="@{data.main.pressure}"
-            app:layout_constraintBottom_toBottomOf="@+id/pressureLabel"
-            app:layout_constraintEnd_toEndOf="@+id/humidityText"
-            app:layout_constraintTop_toTopOf="@+id/pressureLabel"
-            tools:text="1023 mb" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:paddingRight="40dp"
+                android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="64dp"
-            android:src="@drawable/ic_undraw_season_change"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateTimeText" />
+                <TextView
+                    android:id="@+id/humidityLabel"
+                    style="@style/WeatherLabelTextStyle"
+                    android:layout_weight="1"
 
-        <TextView
-            android:id="@+id/windDirectionLabel"
-            style="@style/WeatherLabelTextStyle"
-            android:layout_marginTop="24dp"
-            android:text="@string/wind_direction_label"
-            
-            app:layout_constraintStart_toStartOf="@+id/humidityLabel"
-            app:layout_constraintTop_toBottomOf="@+id/pressureLabel" />
+                    android:text="@string/humidity_label" />
 
-        <TextView
-            android:id="@+id/windDirectionText"
-            style="@style/WeatherInfoTextStyle"
-            app:convertDoubleToString="@{data.wind.deg}"
-            app:layout_constraintBottom_toBottomOf="@+id/windDirectionLabel"
-            app:layout_constraintEnd_toEndOf="@+id/humidityText"
-            app:layout_constraintTop_toTopOf="@+id/windDirectionLabel"
-            tools:text="N" />
+                <TextView
+                    android:id="@+id/humidityText"
+                    style="@style/WeatherInfoTextStyle"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    app:convertDoubleToString="@{data.main.humidity}"
+                    tools:text="65%" />
 
-        <TextView
-            android:id="@+id/visibilityLabel"
-            style="@style/WeatherLabelTextStyle"
-            android:layout_marginTop="24dp"
-            android:text="@string/visibility_label"
-            
-            app:layout_constraintStart_toStartOf="@+id/humidityLabel"
-            app:layout_constraintTop_toBottomOf="@+id/windSpeedLabel" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/visibilityText"
-            style="@style/WeatherInfoTextStyle"
-            app:convertDoubleToString="@{data.visibility}"
-            app:layout_constraintBottom_toBottomOf="@+id/visibilityLabel"
-            app:layout_constraintEnd_toEndOf="@+id/humidityText"
-            app:layout_constraintTop_toTopOf="@+id/visibilityLabel"
-            tools:text="0 km" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:paddingRight="40dp"
+                android:orientation="horizontal">
+                android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/iconSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="?android:attr/actionModeWebSearchDrawable" />
+                <TextView
+                    android:id="@+id/windSpeedLabel"
+                    style="@style/WeatherLabelTextStyle"
+                    android:layout_weight="1"
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:text="@string/wind_speed_label" />
+
+                <TextView
+                    android:id="@+id/windSpeedText"
+                    style="@style/WeatherInfoTextStyle"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    app:convertDoubleToString="@{data.wind.speed}"
+                    tools:text="5.69 km/h" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:paddingRight="40dp"
+                android:orientation="horizontal">
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pressureLabel"
+                    style="@style/WeatherLabelTextStyle"
+                    android:layout_weight="1"
+
+                    android:text="@string/pressure_label" />
+
+                <TextView
+                    android:id="@+id/pressureText"
+                    style="@style/WeatherInfoTextStyle"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    app:convertDoubleToString="@{data.main.pressure}"
+                    tools:text="1023 mb" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+
+                android:src="@drawable/ic_undraw_season_change"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="40dp"
+                android:layout_marginTop="20dp"
+                android:paddingRight="40dp"
+                android:orientation="horizontal">
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/windDirectionLabel"
+                    style="@style/WeatherLabelTextStyle"
+                    android:layout_weight="1"
+
+                    android:text="@string/wind_direction_label" />
+
+                <TextView
+                    android:id="@+id/windDirectionText"
+                    style="@style/WeatherInfoTextStyle"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    app:convertDoubleToString="@{data.wind.deg}"
+                    tools:text="N" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/visibilityLabel"
+                    style="@style/WeatherLabelTextStyle"
+                    android:layout_weight="1"
+
+                    android:text="@string/visibility_label" />
+
+                <TextView
+                    android:id="@+id/visibilityText"
+                    style="@style/WeatherInfoTextStyle"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd"
+                    app:convertDoubleToString="@{data.visibility}"
+                    tools:text="0 km" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.core.widget.NestedScrollView>
 </layout>

@@ -50,9 +50,9 @@ fun weatherDescriptionText(view: TextView, it: WeatherNow?) {
 fun weatherIcon(view: ImageView, image: WeatherNow?) {
     image?.let {
 
-        Picasso.get().load("http://openweathermap.org/img/w/${image.weather[0].icon}.png").placeholder(R.drawable.progress_animation).into(view)
+      //  Picasso.get().load("http://openweathermap.org/img/w/${image.weather[0].icon}.png").placeholder(R.drawable.progress_animation).into(view)
     }?: run {
-        Picasso.get().load(R.drawable.ic_cloud_queue_dark).error(R.drawable.ic_cloud_queue_dark).placeholder(R.drawable.ic_cloud_queue_dark).into(view)
+      //  Picasso.get().load(R.drawable.ic_cloud_queue_dark).error(R.drawable.ic_cloud_queue_dark).placeholder(R.drawable.ic_cloud_queue_dark).into(view)
     }
 }
 

@@ -19,6 +19,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.weather.app.R
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
+import org.conscrypt.Conscrypt
+import java.security.Security
 
 
 class MainActivity : androidx.appcompat.app.AppCompatActivity() {
@@ -32,8 +36,13 @@ class MainActivity : androidx.appcompat.app.AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppTheme)
         setContentView(R.layout.activity_main)
+
+        //Security.insertProviderAt(Conscrypt.newProvider(), 1);
+
         setupBottomNav()
-        setUpLocationWeather()
+        //setUpLocationWeather()
+        viewModel.getWeatherNow(18.809081, 98.992223) // chiangmai , thailand
+
     }
 
     private fun setUpLocationWeather(){
@@ -72,6 +81,7 @@ class MainActivity : androidx.appcompat.app.AppCompatActivity() {
             val locationGPS: Location? =
                 locationManager!!.getLastKnownLocation(LocationManager.GPS_PROVIDER)
             if (locationGPS != null) {
+
                 viewModel.getWeatherNow(locationGPS.latitude,locationGPS.longitude)
             } else {
                 Toast.makeText(this, "Unable to find location.", Toast.LENGTH_SHORT).show()
